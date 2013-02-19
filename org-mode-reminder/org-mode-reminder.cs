@@ -61,33 +61,39 @@ namespace orgmodereminder
 		// Constructor
 		public MainClass ()
 		{
-			trayIcon = new NotifyIcon ();
+			// create tray menu
 			trayMenu = new ContextMenu ();
-			
 			trayMenu.MenuItems.Add ("Exit", OnExit);
 			trayMenu.MenuItems.Add ("Settings", OnSettings);
+
+			// create tray icon
+			trayIcon = new NotifyIcon ();
 			trayIcon.Text = "org-mode reminder";
 			trayIcon.Icon = new Icon ("app.ico", 40, 40);
-			
 			trayIcon.ContextMenu = trayMenu;
+			//display tray icon
 			trayIcon.Visible = true;
 
 			InitialzeSnarl ();
 
+			// if settigs file does not exits then create them.
 			if (!System.IO.File.Exists (Settings.configFile)) {
 				Settings settingForm = new Settings ();
 				settingForm.FormClosed += new FormClosedEventHandler (settingForm_IsClosed);
 				settingForm.Show ();
 			} else 
 			{
-				Thread mainLoop = new Thread(StartMainLoop);
-				mainLoop.IsBackground = true;
-				mainLoop.Start();
+				startMainLoop();
 			}
 		}
 
 		// start main loop when setting form is closed
 		private void settingForm_IsClosed (object sender, EventArgs e)
+		{
+			startMainLoop();
+		}
+
+		private void startMainLoop ()
 		{
 			Thread mainLoop = new Thread(StartMainLoop);
 			mainLoop.IsBackground = true;
@@ -115,7 +121,7 @@ namespace orgmodereminder
 			// ReRegisterSnarl() is called when first starting, and when a launch of Snarl is detected after this program is started.
 			ReRegisterSnarl();
 
-			snarl.CallbackEvent += CallbackEventHandler;
+			//snarl.CallbackEvent += CallbackEventHandler;
 			snarl.GlobalSnarlEvent += (snarlInstance, args) =>
 			{
 			 	if (args.GlobalEvent == SnarlGlobalEvent.SnarlLaunched)
@@ -133,49 +139,6 @@ namespace orgmodereminder
 			snarl.AddClass(SnarlClassNormal, "Normal messages");
 			snarl.AddClass(SnarlClassCritical, "Critical messages");
 			snarl.AddClass(SnarlClassLow, "Low priority messages");
-		}
-
-		private void CallbackEventHandler(object sender, SnarlCallbackEventArgs e)
-		{
-			
-		 	switch (e.SnarlEvent)
-		 	{
-			 	case SnarlStatus.NotifyAction:
-					HandleActionCallback(e.Parameter, e.MessageToken);
-				 	break;
-				
-/*				case SnarlStatus.NotifyInvoked:
-					case SnarlStatus.CallbackInvoked:
-					 	if (e.Parameter == NormalMsgCallbackValue)
-							test = "1";
-					 	else
-							test = "2";
-				 	break;
-				
-					 	case SnarlStatus.NotifyExpired:
-					 		case SnarlStatus.CallbackTimedOut:
-								test = "3";
-						 		break;
-				
-				 	default:
-						test = "4";	
-					 	break;*/
-			}
-	 	}
-	
-		private void HandleActionCallback(UInt16 actionData, int msgToken)
-		{
-			/*//test block
-			String test;
-			switch ((SnarlActions)actionData)
-			{
-				case SnarlActions.DoSomething:
-					test = "1";
-				 	break;
-			 	case SnarlActions.DoSomethingElse:
-					test = "2";
-				 	break;
-			}*/
 		}
 
 		private void StartMainLoop()
@@ -217,7 +180,6 @@ namespace orgmodereminder
 	                            		      		actions: GetDefaultActions ());
 						}
 					}
-
 					Thread.Sleep(1000);
 				}
 			}
