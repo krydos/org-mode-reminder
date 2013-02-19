@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "org-mode-reminder", "org-mode-reminder\org-mode-reminder.csproj", "{2273CF04-3E8D-4F10-AE70-7619F0F4BF05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2273CF04-3E8D-4F10-AE70-7619F0F4BF05}.Debug|x86.ActiveCfg = Debug|x86
+		{2273CF04-3E8D-4F10-AE70-7619F0F4BF05}.Debug|x86.Build.0 = Debug|x86
+		{2273CF04-3E8D-4F10-AE70-7619F0F4BF05}.Release|x86.ActiveCfg = Release|x86
+		{2273CF04-3E8D-4F10-AE70-7619F0F4BF05}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = org-mode-reminder\org-mode-reminder.csproj
+	EndGlobalSection
+EndGlobal

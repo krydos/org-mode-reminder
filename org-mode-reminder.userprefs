@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="org-mode-reminder\OrgFile.cs">
+    <Files>
+      <File FileName="org-mode-reminder\org-mode-reminder.cs" Line="159" Column="20" />
+      <File FileName="org-mode-reminder\OrgFile.cs" Line="37" Column="9" />
+      <File FileName="org-mode-reminder\Task.cs" Line="16" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
