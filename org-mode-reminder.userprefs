@@ -1,11 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="org-mode-reminder\Settings.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="org-mode-reminder\org-mode-reminder.cs">
     <Files>
-      <File FileName="org-mode-reminder\org-mode-reminder.cs" Line="75" Column="23" />
+      <File FileName="org-mode-reminder\org-mode-reminder.cs" Line="74" Column="48" />
       <File FileName="org-mode-reminder\OrgFile.cs" Line="27" Column="6" />
       <File FileName="org-mode-reminder\Task.cs" Line="26" Column="3" />
-      <File FileName="org-mode-reminder\Settings.cs" Line="47" Column="4" />
+      <File FileName="org-mode-reminder\Settings.cs" Line="65" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -56,13 +56,21 @@ namespace orgmodereminder
 
 			InitialzeSnarl ();
 
-			if (!System.IO.File.Exists (Settings.configFile)) 
-			{
-				Settings settingForm = new Settings();
+			if (!System.IO.File.Exists (Settings.configFile)) {
+				Settings settingForm = new Settings ();
+				settingForm.FormClosed += new FormClosedEventHandler (settingForm_IsClosed);
 				settingForm.Show ();
+			} else 
+			{
+				Thread mainLoop = new Thread(StartMainLoop);
+				mainLoop.IsBackground = true;
+				mainLoop.Start();
 			}
+		}
 
-			// start Main Loop in new thread
+		// start main loop when setting form is closed
+		private void settingForm_IsClosed (object sender, EventArgs e)
+		{
 			Thread mainLoop = new Thread(StartMainLoop);
 			mainLoop.IsBackground = true;
 			mainLoop.Start();

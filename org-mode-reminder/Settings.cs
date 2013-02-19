@@ -46,13 +46,17 @@ namespace orgmodereminder
 			}
 		}
 
-		private void CreateXMLDocument(string filePath)
+		private void CreateXMLDocument (string filePath)
 		{
-			XmlTextWriter xtw = new XmlTextWriter(filePath, System.Text.Encoding.UTF8);
-			xtw.WriteStartDocument();
-			xtw.WriteStartElement("files");
-			xtw.WriteEndDocument();
-			xtw.Close();
+			//XmlTextWriter xtw = new XmlTextWriter(filePath, System.Text.Encoding.UTF8);
+			System.IO.FileStream fs = new System.IO.FileStream(configFile, System.IO.FileMode.Create);
+			XmlTextWriter  xtw = new XmlTextWriter(fs, System.Text.Encoding.UTF8);
+			xtw.WriteStartDocument ();
+			xtw.WriteStartElement ("files");
+			xtw.WriteEndDocument ();
+			xtw.Close ();
+			fs.Close();
+			fs.Dispose();
 		}
 
 		private void AddOrgFileToConfig(string pathToOrgFile)
