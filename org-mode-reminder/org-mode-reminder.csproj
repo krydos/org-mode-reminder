@@ -9,6 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>orgmodereminder</RootNamespace>
     <AssemblyName>org-mode-reminder</AssemblyName>
+    <ApplicationIcon>bin\Release\app.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>True</DebugSymbols>
